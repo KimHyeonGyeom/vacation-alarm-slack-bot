@@ -6,6 +6,31 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "@slack/bolt": "^3.8.1",
+    "@slack/events-api": "^3.0.1",
+    "@slack/interactive-messages": "^2.0.2",
+    "@slack/rtm-api": "^6.0.0",
+    "@slack/web-api": "^6.5.1",
+    "async": "^3.2.3",
+    "cheerio": "^1.0.0-rc.10",
+    "dotenv": "^12.0.4",
+    "express": "^4.18.1",
+    "moment": "^2.29.3",
+    "mysql2": "^2.3.3",
+    "redis": "^4.1.0",
+    "request": "^2.88.2",
+    "serverless": "^3.19.0",
+    "serverless-http": "^3.0.1",
+    "serverless-offline": "^8.8.0",
+    "slack-client": "^2.0.6",
+    "slack-node": "^0.1.8",
+    "string-similarity": "^4.0.4"
+  },
+  "devDependencies": {
+    "serverless-plugin-typescript": "^2.1.2",
+    "typescript": "^4.7.4"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
