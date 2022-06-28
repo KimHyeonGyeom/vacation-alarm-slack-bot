@@ -74,15 +74,15 @@ export const getVacationDateList = (vacationDate) => {
 }
 
 
-export const pushSlackMessage = (todayAnnualSlackMessage , vacationers , vacationType , workingHours = '') => {
+export const pushSlackMessage = (todayAnnualSlackMessage , vacationers , vacationType , emoji , workingHours = '') => {
     if (vacationers.length === 0) return;
 
     if (vacationers.length > 1) {
         for (const vacationer of vacationers) {
-            todayAnnualSlackMessage.push(JSON.parse(stringFormat(JSON.stringify(SLACK_VACATION_MESSAGE_TEMPLATE),  vacationer, vacationType, workingHours))) ;
+            todayAnnualSlackMessage.push(JSON.parse(stringFormat(JSON.stringify(SLACK_VACATION_MESSAGE_TEMPLATE), emoji, vacationer, vacationType, workingHours))) ;
         }
     } else {
-        todayAnnualSlackMessage.push(JSON.parse(stringFormat(JSON.stringify(SLACK_VACATION_MESSAGE_TEMPLATE),  vacationers, vacationType, workingHours)));
+        todayAnnualSlackMessage.push(JSON.parse(stringFormat(JSON.stringify(SLACK_VACATION_MESSAGE_TEMPLATE), emoji, vacationers, vacationType, workingHours)));
     }
 }
 

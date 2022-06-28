@@ -9,7 +9,7 @@ import {
     unixTimestampConvert
 } from "./utils/utils.js";
 import moment from "moment";
-
+import 'moment/locale/ko.js';
 import {SLACK_MESSAGE_TEMPLATE} from "./utils/constants.js";
 
 dotenv.config();
@@ -53,12 +53,13 @@ async function sendSlackMessage(vacationNoticeChannelId ) {
         const todayAnnualSlackMessage = SLACK_MESSAGE_TEMPLATE;
 
 
-        pushSlackMessage(todayAnnualSlackMessage, todayAnnualList, '연차');
-        pushSlackMessage(todayAnnualSlackMessage, todayAmHalfwayList, '오전 반차','`오전 10:00 ~ 오후 01:30`');
-        pushSlackMessage(todayAnnualSlackMessage, todayPmHalfwayList, '오후 반차','`오후 13:30 ~ 오후 06:00`');
-        pushSlackMessage(todayAnnualSlackMessage, todaySickLeaveList, '병가');
-        pushSlackMessage(todayAnnualSlackMessage, todayAmSickLeaveList, '오전 병가','`오전 10:00 ~ 오후 01:30`');
-        pushSlackMessage(todayAnnualSlackMessage, todayPmSickLeaveList, '오후 병가', '`오후 13:30 ~ 오후 06:00`');
+        pushSlackMessage(todayAnnualSlackMessage, todayAnnualList, '연차', ':desert_island:');
+        pushSlackMessage(todayAnnualSlackMessage, todayAmHalfwayList, '오전 반차', ':sunny:', '`오전 10:00 ~ 오후 01:30`');
+        pushSlackMessage(todayAnnualSlackMessage, todayPmHalfwayList, '오후 반차', ':full_moon:', '`오후 13:30 ~ 오후 06:00`');
+        pushSlackMessage(todayAnnualSlackMessage, todaySickLeaveList, '병가', ':hospital:',);
+        pushSlackMessage(todayAnnualSlackMessage, todayAmSickLeaveList, '오전 병가', ':hospital:', '`오전 10:00 ~ 오후 01:30`');
+        pushSlackMessage(todayAnnualSlackMessage, todayPmSickLeaveList, '오후 병가', ':hospital:', '`오후 13:30 ~ 오후 06:00`');
+
 
 
         //console.log(todayAnnualSlackMessage);
@@ -67,7 +68,7 @@ async function sendSlackMessage(vacationNoticeChannelId ) {
             // The token you used to initialize your app
             token: process.env.SLACK_BOT_TOKEN,
             channel: vacationNoticeChannelId,
-            text: `[휴가일정]  ${moment(todayDate).format('YYYY. MM. DD')} ` + '(' + moment(todayDate).format('dddd').slice(0, 1) + ')',
+            text: `행복을 찾아 떠나는 사람들 :beach_with_umbrella:`,
             blocks: todayAnnualSlackMessage
         })
     } catch (error) {
